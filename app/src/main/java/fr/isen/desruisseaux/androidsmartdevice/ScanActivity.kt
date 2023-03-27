@@ -123,25 +123,7 @@ class ScanActivity : AppCompatActivity() {
                 binding.listBle.visibility = View.GONE
             }
     }
-
-    private fun requestPermission(){
-        when{
-            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED -> {
-                //Permission is granted
-            }
-            ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH_SCAN) -> {
-                //Additional rationale should be displayed
-            }
-            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED -> {
-                //Permission is granted
-            }
-            ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH_CONNECT) -> {
-                //Additional rationale should be displayed
-            }
-            else -> {
-                //Permission has not been asked yet
-            }
-        }
+    
     }
 
 
