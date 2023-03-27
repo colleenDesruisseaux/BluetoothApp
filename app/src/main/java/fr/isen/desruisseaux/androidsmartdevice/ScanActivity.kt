@@ -123,9 +123,4 @@ class ScanActivity : AppCompatActivity() {
                 binding.listBle.visibility = View.GONE
             }
     }
-    
-    }
-
-
-
 }
