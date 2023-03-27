@@ -1,13 +1,13 @@
 package fr.isen.desruisseaux.androidsmartdevice
 
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import fr.isen.desruisseaux.androidsmartdevice.databinding.CellScanBinding
 
-class ScanAdapter(val nom : ArrayList<String>):RecyclerView.Adapter<ScanAdapter.CellViewHolder>() {
+class ScanAdapter(val nom : ArrayList<String>): RecyclerView.Adapter<ScanAdapter.CellViewHolder>() {
 
     class CellViewHolder(binding: CellScanBinding) : RecyclerView.ViewHolder(binding.root) {
         val textView : TextView = binding.ble

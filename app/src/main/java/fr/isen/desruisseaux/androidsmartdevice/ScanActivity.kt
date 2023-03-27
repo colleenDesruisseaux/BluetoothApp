@@ -1,16 +1,20 @@
 package fr.isen.desruisseaux.androidsmartdevice
 
+import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import fr.isen.desruisseaux.androidsmartdevice.databinding.ActivityMainBinding
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.desruisseaux.androidsmartdevice.databinding.ActivityScanBinding
 
 class ScanActivity : AppCompatActivity() {
@@ -22,7 +26,13 @@ class ScanActivity : AppCompatActivity() {
             bluetoothManager.adapter
     }
 
-
+    val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            if (!permissions.containsValue(false)) {
+                scanBLEDevices()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +43,46 @@ class ScanActivity : AppCompatActivity() {
             //J'ai le BLE
             Toast.makeText(this, "Bluetooth activé", Toast.LENGTH_LONG).show()
             Toast.makeText(this, "Prêt à détecter les appareils !", Toast.LENGTH_LONG).show()
+            scanDeviceWithPermissions()
         }   else {
             //Bluetooth accessible mais non activé
             Toast.makeText(this, "Bluetooth accessible mais non activé", Toast.LENGTH_LONG).show()
         }
         buttonListener()
         showDatas()
+    }
+
+    private fun scanDeviceWithPermissions() {
+        if (allPermissionsGranted()){
+            scanBLEDevices()
+        } else {
+            //request permission pour TOUTES les permissions
+            requestPermissionLauncher.launch(getAllPermissions())
+        }
+    }
+
+    private fun scanBLEDevices() {
+        TODO("Not yet implemented")
+    }
+
+    private fun allPermissionsGranted(): Boolean {
+        val allPermissions = getAllPermissions()
+        return allPermissions.all {
+            //it
+            ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    private fun getAllPermissions(): Array<String> {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                           Manifest.permission.ACCESS_COARSE_LOCATION,
+                           Manifest.permission.BLUETOOTH_SCAN,
+                           Manifest.permission.BLUETOOTH_CONNECT)
+        } else {
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+        }
     }
 
     private fun showDatas() {
@@ -79,4 +123,27 @@ class ScanActivity : AppCompatActivity() {
                 binding.listBle.visibility = View.GONE
             }
     }
+
+    private fun requestPermission(){
+        when{
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED -> {
+                //Permission is granted
+            }
+            ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH_SCAN) -> {
+                //Additional rationale should be displayed
+            }
+            ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED -> {
+                //Permission is granted
+            }
+            ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH_CONNECT) -> {
+                //Additional rationale should be displayed
+            }
+            else -> {
+                //Permission has not been asked yet
+            }
+        }
+    }
+
+
+
 }
