@@ -97,5 +97,6 @@ class DeviceActivity : AppCompatActivity() {
         binding.led1.isVisible = true
         binding.led2.isVisible = true
         binding.led3.isVisible = true
+        binding.nbClick.isVisible = true
     }
 }
