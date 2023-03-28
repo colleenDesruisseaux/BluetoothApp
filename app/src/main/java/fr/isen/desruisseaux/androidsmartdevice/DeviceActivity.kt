@@ -9,6 +9,7 @@ import fr.isen.desruisseaux.androidsmartdevice.databinding.ActivityScanBinding
 
 class DeviceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDeviceBinding
+    private var cptClick = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDeviceBinding.inflate(layoutInflater)
@@ -25,6 +26,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led1.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led1.imageTintList = getColorStateList(R.color.ledOn)
+                cptClick++
+                binding.nbClick.text = "Nombre de click: $cptClick"
             }
         }
 
@@ -33,6 +36,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led2.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led2.imageTintList = getColorStateList(R.color.ledOn)
+                cptClick++
+                binding.nbClick.text = "Nombre de click: $cptClick"
             }
         }
 
@@ -41,6 +46,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led3.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led3.imageTintList = getColorStateList(R.color.ledOn)
+                cptClick++
+                binding.nbClick.text = "Nombre de click: $cptClick"
             }
         }
     }
