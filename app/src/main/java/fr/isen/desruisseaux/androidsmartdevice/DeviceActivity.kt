@@ -33,7 +33,7 @@ class DeviceActivity : AppCompatActivity() {
         binding = ActivityDeviceBinding.inflate(layoutInflater)
         setContentView(binding.root)
         var recup = intent.getParcelableExtra<BluetoothDevice>("device")
-        binding.nameDevice.text
+        binding.nameDevice.text = recup?.name?:"Inconnu"
         clickLight()
         bluetoothGatt = recup?.connectGatt(this, false, bluetoothGattCallback)
         bluetoothGatt?.connect()
