@@ -137,7 +137,7 @@ class ScanActivity : AppCompatActivity() {
 
         adapter = ScanAdapter(arrayListOf()) {
             val intent = Intent(this, DeviceActivity::class.java)
-            intent.putExtra("device", it)
+            intent.putExtra("device", it.address)
             startActivity(intent)
         }
 

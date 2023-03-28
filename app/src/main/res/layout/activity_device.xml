@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".DeviceActivity">
 
+    <TextView
+        android:id="@+id/nameDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/affLED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="124dp"
+        android:text="Affichage des LEDs : "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/led1"
+        android:layout_width="135dp"
+        android:layout_height="131dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="172dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/led" />
+
+    <ImageView
+        android:id="@+id/led2"
+        android:layout_width="135dp"
+        android:layout_height="131dp"
+        app:layout_constraintBottom_toBottomOf="@+id/led1"
+        app:layout_constraintStart_toEndOf="@+id/led1"
+        app:layout_constraintTop_toTopOf="@+id/led1"
+        app:srcCompat="@drawable/led" />
+
+    <ImageView
+        android:id="@+id/led3"
+        android:layout_width="135dp"
+        android:layout_height="131dp"
+        app:layout_constraintBottom_toBottomOf="@+id/led2"
+        app:layout_constraintStart_toEndOf="@+id/led2"
+        app:layout_constraintTop_toTopOf="@+id/led2"
+        app:srcCompat="@drawable/led" />
 </androidx.constraintlayout.widget.ConstraintLayout>
