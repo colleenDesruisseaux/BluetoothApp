@@ -34,6 +34,7 @@
         android:layout_height="131dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="244dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/led" />
@@ -43,6 +44,7 @@
         android:layout_width="135dp"
         android:layout_height="131dp"
         android:layout_marginStart="8dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/led1"
         app:layout_constraintStart_toEndOf="@+id/led1"
         app:layout_constraintTop_toTopOf="@+id/led1"
@@ -53,6 +55,7 @@
         android:id="@+id/led3"
         android:layout_width="135dp"
         android:layout_height="131dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/led2"
         app:layout_constraintStart_toEndOf="@+id/led2"
         app:layout_constraintTop_toTopOf="@+id/led2"
