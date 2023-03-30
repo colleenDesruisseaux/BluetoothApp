@@ -40,6 +40,7 @@ class ScanAdapter(val nom : ArrayList<BluetoothDevice>, var onDeviceClickListene
         nom.forEachIndexed { index, bluetoothDevice ->
             if (bluetoothDevice.address == device.address) {
                 nom[index] = device
+                shouldAddDevice = false
             }
         }
         if (shouldAddDevice) {
