@@ -5,18 +5,18 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="#FDAFBE"
     android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/titre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="148dp"
+        android:layout_height="52dp"
         android:layout_marginTop="132dp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="@font/dancing_script_bold"
         android:text="Bienvenue !"
-        android:textColor="#E0C0E8"
+        android:textColor="#CBFE9CAF"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +28,13 @@
         android:id="@+id/desc"
         android:layout_width="386dp"
         android:layout_height="88dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="serif-monospace"
         android:text="Pour commencer à scanner les appareils BLE, veuillez cliquer sur le bouton &quot;Commencer&quot; ci-dessous"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -48,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/desc"
-        app:layout_constraintVertical_bias="0.84"
+        app:layout_constraintVertical_bias="0.712"
         app:srcCompat="@drawable/bluetooth" />
 
     <Button
@@ -57,7 +58,9 @@
         android:layout_height="51dp"
         android:layout_marginBottom="72dp"
         android:background="@drawable/border_button"
+        android:fontFamily="serif-monospace"
         android:text="Commencer"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -67,11 +70,13 @@
         android:id="@+id/regles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="4dp"
         android:background="@drawable/border_button"
+        android:fontFamily="serif-monospace"
         android:text="Aide"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/desc" />
 
@@ -91,4 +96,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regles"
         app:layout_constraintVertical_bias="0.216" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="64dp"
+        android:layout_height="65dp"
+        android:rotation="180"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fleur" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="64dp"
+        android:layout_height="65dp"
+        android:rotation="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/fleur" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
