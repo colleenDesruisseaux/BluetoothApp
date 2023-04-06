@@ -51,12 +51,12 @@ class DeviceActivity : AppCompatActivity() {
 
         binding.led1.setOnClickListener{
             val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
-            if (binding.led1.imageTintList == getColorStateList(R.color.ledOn)) {
+            if (binding.led1.imageTintList == getColorStateList(R.color.led1Bleu)) {
                 binding.led1.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x00)
                 bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
-                binding.led1.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led1.imageTintList = getColorStateList(R.color.led1Bleu)
                 binding.led2.imageTintList = getColorStateList(R.color.black)
                 binding.led3.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x01)
@@ -68,12 +68,12 @@ class DeviceActivity : AppCompatActivity() {
 
         binding.led2.setOnClickListener{
             val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
-            if (binding.led2.imageTintList == getColorStateList(R.color.ledOn)) {
+            if (binding.led2.imageTintList == getColorStateList(R.color.led2Vert)) {
                 binding.led2.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x00)
                 bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
-                binding.led2.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led2.imageTintList = getColorStateList(R.color.led2Vert)
                 binding.led1.imageTintList = getColorStateList(R.color.black)
                 binding.led3.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x02)
@@ -85,12 +85,12 @@ class DeviceActivity : AppCompatActivity() {
 
         binding.led3.setOnClickListener{
             val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
-            if (binding.led3.imageTintList == getColorStateList(R.color.ledOn)) {
+            if (binding.led3.imageTintList == getColorStateList(R.color.led3Rouge)) {
                 binding.led3.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x00)
                 bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
-                binding.led3.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led3.imageTintList = getColorStateList(R.color.led3Rouge)
                 binding.led1.imageTintList = getColorStateList(R.color.black)
                 binding.led2.imageTintList = getColorStateList(R.color.black)
                 characteristic?.value = byteArrayOf(0x03)

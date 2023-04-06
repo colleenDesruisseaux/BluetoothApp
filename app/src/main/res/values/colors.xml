@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ledOn">#FFC107</color>
+    <color name="led1Bleu">#01A7FF</color>
+    <color name="led2Vert">#4BC52F</color>
+    <color name="led3Rouge">#FF0127</color>
+    <color name="grey">#CCCACA</color>
+    <color name="button">#34E0C0E8</color>
 </resources>

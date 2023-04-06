@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ScanActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listBle"
+        android:layout_width="409dp"
+        android:layout_height="636dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/etatScan"
-        android:layout_width="210dp"
-        android:layout_height="35dp"
+        android:layout_width="239dp"
+        android:layout_height="32dp"
         android:layout_marginTop="40dp"
+        android:fontFamily="serif-monospace"
         android:text="Lancer le Scan BLE"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -39,14 +48,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_media_pause" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listBle"
-        android:layout_width="409dp"
-        android:layout_height="636dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -54,6 +55,7 @@
         android:layout_height="24dp"
         android:layout_marginBottom="4dp"
         android:indeterminate="true"
+        android:indeterminateTint="#E0C0E8"
         app:layout_constraintBottom_toTopOf="@+id/listBle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +66,8 @@
         android:layout_width="425dp"
         android:layout_height="5dp"
         android:layout_marginTop="80dp"
-        android:background="@color/teal_200"
-        android:backgroundTint="@color/teal_200"
+        android:background="#E0C0E8"
+        android:backgroundTint="#E0C0E8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
