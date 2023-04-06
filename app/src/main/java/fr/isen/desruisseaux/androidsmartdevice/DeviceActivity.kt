@@ -15,6 +15,7 @@ import android.widget.Button
 import androidx.core.view.isVisible
 import fr.isen.desruisseaux.androidsmartdevice.databinding.ActivityDeviceBinding
 import fr.isen.desruisseaux.androidsmartdevice.databinding.ActivityScanBinding
+import java.util.*
 
 @SuppressLint("MissingPermission")
 class DeviceActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class DeviceActivity : AppCompatActivity() {
         val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         bluetoothManager.adapter
     }
+    private val characteristicLedUUID = UUID.fromString("0000abcd-8e22-4541-9d4c-21edae82ed19")
+    private val serviceUUID = UUID.fromString("0000feed-cc7a-482a-984a-7f2ed5b3e58f")
     private var cptClick = 0
 
     var bluetoothGatt: BluetoothGatt? = null
@@ -47,36 +50,51 @@ class DeviceActivity : AppCompatActivity() {
     private fun clickLight(){
 
         binding.led1.setOnClickListener{
+            val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
             if (binding.led1.imageTintList == getColorStateList(R.color.ledOn)) {
                 binding.led1.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x00)
+                bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
                 binding.led1.imageTintList = getColorStateList(R.color.ledOn)
                 binding.led2.imageTintList = getColorStateList(R.color.black)
                 binding.led3.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x01)
+                bluetoothGatt?.writeCharacteristic(characteristic)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
         }
 
         binding.led2.setOnClickListener{
+            val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
             if (binding.led2.imageTintList == getColorStateList(R.color.ledOn)) {
                 binding.led2.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x00)
+                bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
                 binding.led2.imageTintList = getColorStateList(R.color.ledOn)
                 binding.led1.imageTintList = getColorStateList(R.color.black)
                 binding.led3.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x02)
+                bluetoothGatt?.writeCharacteristic(characteristic)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
         }
 
         binding.led3.setOnClickListener{
+            val characteristic = bluetoothGatt?.getService(serviceUUID)?.getCharacteristic(characteristicLedUUID)
             if (binding.led3.imageTintList == getColorStateList(R.color.ledOn)) {
                 binding.led3.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x00)
+                bluetoothGatt?.writeCharacteristic(characteristic)
             } else {
                 binding.led3.imageTintList = getColorStateList(R.color.ledOn)
                 binding.led1.imageTintList = getColorStateList(R.color.black)
                 binding.led2.imageTintList = getColorStateList(R.color.black)
+                characteristic?.value = byteArrayOf(0x03)
+                bluetoothGatt?.writeCharacteristic(characteristic)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
@@ -88,6 +106,7 @@ class DeviceActivity : AppCompatActivity() {
             if (newState == BluetoothProfile.STATE_CONNECTED) {
                 Log.e("test", "BLE trouvé")
                 runOnUiThread {
+                    bluetoothGatt?.discoverServices()
                     displayContentConnected()
                 }
                 // successfully connected to the GATT Server
