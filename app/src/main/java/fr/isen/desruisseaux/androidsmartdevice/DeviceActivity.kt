@@ -51,6 +51,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led1.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led1.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led2.imageTintList = getColorStateList(R.color.black)
+                binding.led3.imageTintList = getColorStateList(R.color.black)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
@@ -61,6 +63,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led2.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led2.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led1.imageTintList = getColorStateList(R.color.black)
+                binding.led3.imageTintList = getColorStateList(R.color.black)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
@@ -71,6 +75,8 @@ class DeviceActivity : AppCompatActivity() {
                 binding.led3.imageTintList = getColorStateList(R.color.black)
             } else {
                 binding.led3.imageTintList = getColorStateList(R.color.ledOn)
+                binding.led1.imageTintList = getColorStateList(R.color.black)
+                binding.led2.imageTintList = getColorStateList(R.color.black)
                 cptClick++
                 binding.nbClick.text = "Nombre de click: $cptClick"
             }
